@@ -1,50 +1,32 @@
-# Welcome to your Expo app 👋
+# PawsOff
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+PawsOff is a mobile application designed to help pet owners determine if specific food items and ingredients are safe for their dogs. Using a combination of machine learning and a user-friendly interface, PawsOff will scan ingredients and provide immediate feedback on whether they are harmful, safe, or should be given in moderation.
 
-## Get started
+## Features
+- **Ingredient Scanning**: Upload a photo or type in ingredients to determine if they are safe for dogs.
+- **Safety Categories**: Results are categorized as Safe, Harmful, or Moderate.
+- **Educational Insights**: Learn about specific ingredients and their potential effects on your dog's health.
+- **Future Updates**: Plans to include a database of common dog-safe recipes and nutritional guidelines.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## Tech Stack
 
-2. Start the app
+### Frontend
+- **React Native**: For a seamless cross-platform mobile app experience.
 
-   ```bash
-    npx expo start
-   ```
+### Backend
+- **Flask**: Lightweight and efficient backend for handling API requests.
 
-In the output, you'll find options to open the app in a
+### Machine Learning
+- **TensorFlow**: Utilized to build a custom model for recognizing and classifying ingredients.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Getting Started
+- Instructions are provided in each folder `client` and `backend`
 
-## Get a fresh project
+---
 
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.

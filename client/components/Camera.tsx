@@ -1,30 +1,35 @@
 import { CameraView, CameraType, useCameraPermissions } from "expo-camera";
 import { useState } from "react";
 import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { CameraType as CameraTypeEnum } from "../constants/CameraEnum";
 
-export default function Camera() {
-  const [facing, setFacing] = useState<CameraType>("back");
+export default function App() {
+  const [facing, setFacing] = useState<CameraType>(CameraTypeEnum.BACK);
   const [permission, requestPermission] = useCameraPermissions();
 
   // Camera permissions are still loading.
   if (!permission) {
     return <View />;
   }
-
   // Camera permissions are not granted yet.
   if (!permission.granted) {
     return (
-      <View style={styles.permissionContainer}>
+      <View style={styles.container}>
         <Text style={styles.message}>
           We need your permission to show the camera
         </Text>
-        <Button onPress={requestPermission} title="Grant Permission" />
+        <Button onPress={requestPermission} title="grant permission" />
       </View>
     );
   }
 
-  const toggleCameraFacing = () =>
-    setFacing((current) => (current === "back" ? "front" : "back"));
+  function toggleCameraFacing() {
+    setFacing((current) =>
+      current === CameraTypeEnum.BACK
+        ? CameraTypeEnum.FRONT
+        : CameraTypeEnum.BACK
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -41,38 +46,29 @@ export default function Camera() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#000",
-  },
-  permissionContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    height: "100%",
   },
   message: {
     textAlign: "center",
     paddingBottom: 10,
   },
   camera: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    flex: 1,
   },
   buttonContainer: {
-    position: "absolute",
-    bottom: 20,
-    width: "100%",
-    alignItems: "center",
+    flex: 1,
+    flexDirection: "row",
+    backgroundColor: "transparent",
+    margin: 64,
   },
   button: {
-    padding: 10,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    borderRadius: 5,
+    flex: 1,
+    alignSelf: "flex-end",
+    alignItems: "center",
   },
   text: {
-    fontSize: 16,
+    fontSize: 24,
+    fontWeight: "bold",
     color: "white",
   },
 });

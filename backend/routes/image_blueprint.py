@@ -3,8 +3,8 @@ from flask import Blueprint, json, Response
 image_blueprint = Blueprint('image', __name__)
 
 
-@image_blueprint.route('/')
-def get_foods():
+@image_blueprint.route('/', methods = ["POST"])
+def get_images():
     mock_image = {
         "file_type": "jpg",
         "width": 20,

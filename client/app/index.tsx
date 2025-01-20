@@ -1,4 +1,4 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
 import Auth from "../components/Auth";
@@ -20,15 +20,9 @@ export default function Index() {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View className="flex-1 justify-center">
       {/* {session && session.user ? <Account key={session.user.id} session={session} /> : <Auth />} */}
       <Camera />
     </View>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-  },
-});

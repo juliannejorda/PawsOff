@@ -7,7 +7,7 @@ load_dotenv()
 app = Flask(__name__)
 app.config['ENV'] = 'development'
 app.config['DEBUG'] = True
-
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max upload size
 @app.route('/')
 def home():
     return """<h1>Hello, Flask!!!! We have two endpoints</h1> <ul><li>/api/foods</li> <li>/api/images</li><ul/>"""

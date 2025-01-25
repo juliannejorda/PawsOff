@@ -1,9 +1,17 @@
 import { CameraView, CameraType, useCameraPermissions } from "expo-camera";
 import { useState, useRef } from "react";
-import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Button,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { CameraType as CameraTypeEnum } from "../constants/CameraEnum";
+import PhotoPreview from "./PhotoPreview";
 
-export default function App() {
+export default function Camera() {
   const [facing, setFacing] = useState<CameraType>(CameraTypeEnum.BACK);
   const [permission, requestPermission] = useCameraPermissions();
   const [photo, setPhoto] = useState<string | null>(null);
@@ -43,12 +51,7 @@ export default function App() {
   return (
     <View className="flex-1">
       {photo ? (
-        <View className="flex-1 justify-center items-center">
-          <Image source={{ uri: photo }} className="w-4/5 h-3/5 rounded-lg"/>
-          <TouchableOpacity className="bg-blue-500 px-4 py-3 mt-4 rounded-lg" onPress={() => setPhoto(null)}>
-            <Text className="text-white text-lg font-semibold text-center">Retake</Text>
-          </TouchableOpacity>
-        </View>
+        <PhotoPreview photo={photo} setPhoto={setPhoto} />
       ) : (
         <CameraView style={styles.camera} facing={facing} ref={cameraRef}>
           <View className="absolute bottom-16 flex-row justify-between items-center w-full px-12">
@@ -70,4 +73,3 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-

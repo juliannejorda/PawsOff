@@ -6,8 +6,7 @@ interface PhotoPreviewProps {
   setPhoto: (photo: string | null) => void;
 }
 
-export default function PhotoPreview({ photo, setPhoto }: PhotoPreviewProps) {
-  const API_BASE_URL = "http://192.168.1.168:8080"; 
+export default function PhotoPreview({ photo, setPhoto }: PhotoPreviewProps) { 
   async function submitPicture() {
     const formData = new FormData();
 
@@ -19,7 +18,7 @@ export default function PhotoPreview({ photo, setPhoto }: PhotoPreviewProps) {
 
     try {
       const { data } = await axios.post(
-        `${API_BASE_URL}/api/images`,
+        `${process.env.EXPO_PUBLIC_API_URL}/api/images/`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

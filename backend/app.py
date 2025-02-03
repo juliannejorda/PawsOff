@@ -16,4 +16,4 @@ app.register_blueprint(food_blueprint, url_prefix='/api/foods')
 app.register_blueprint(image_blueprint, url_prefix='/api/images')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=8080, debug=True)

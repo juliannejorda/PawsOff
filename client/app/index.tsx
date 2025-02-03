@@ -9,7 +9,7 @@ export default function Index() {
       if (session) {
         router.replace("/(tabs)/home")
       } else {
-        console.log("no user")
+        // no user
       }
     })
 
@@ -17,7 +17,7 @@ export default function Index() {
       if (session) {
         router.replace("/(tabs)/home/")
       } else {
-        console.log("no user")
+        // no user
         router.replace("/(auth)/login/")
       }
     })

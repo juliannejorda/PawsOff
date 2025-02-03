@@ -1,21 +1,21 @@
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { View } from "react-native";
 import { useState, useEffect } from "react";
 import { supabase } from "../../../lib/supabase";
 import Account from "../../../components/Account";
-import { Session } from "@supabase/supabase-js";
+import { Session, User } from "@supabase/supabase-js";
 import { Stack } from "expo-router";
 import React from "react";
 
 export default function IndexSettings() {
   const [session, setSession] = useState<Session | null>(null);
 
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState<User | null>(null)
   useEffect(() => {
      supabase.auth.getUser().then(({ data: { user }}) => {
       if (user) {
         setUser(user)
       } else {
-        Alert.alert("Error Accessing User")
+        // no user
       }
      })
      
